@@ -1,0 +1,46 @@
+@model pdfcomplexscriptsample.Models.PdfGenerationModel
+@{
+    ViewData["Title"] = "Multilingual PDF Generator";
+    var languages = (IReadOnlyList<pdfcomplexscriptsample.Services.LanguageInfo>)ViewBag.Languages!;
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1>Complex Script PDF Sample</h1>
+        <p>
+            Pick a language, click Generate PDF, and a ready-to-share sample document is created for you instantly.
+        </p>
+    </div>
+
+    <form asp-controller="Pdf" asp-action="Index" method="post" class="generator-form">
+        @Html.AntiForgeryToken()
+
+        <div class="form-row">
+            <label for="SelectedLanguage">Select Language</label>
+            <select asp-for="SelectedLanguage" id="SelectedLanguage" class="lang-select">
+                @foreach (var lang in languages)
+                {
+                    <option value="@lang.Code" selected="@(lang.Code == Model.SelectedLanguage)">
+                        @lang.DisplayName
+                    </option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="btn-generate">
+            <span class="icon">&#128196;</span> Generate PDF
+        </button>
+
+        <div asp-validation-summary="All" class="validation-summary"></div>
+    </form>
+
+    <div class="card-footer">
+        <small>
+            Supported: Hindi &bull; Sanskrit &bull; Tamil &bull; Telugu &bull; Kannada &bull; Malayalam &bull; etc
+        </small>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
