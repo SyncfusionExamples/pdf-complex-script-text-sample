@@ -1,0 +1,128 @@
+:root {
+    --primary: #464feb;
+    --primary-dark: #2f3bcf;
+    --bg: #f4f6fb;
+    --border: #e6e6e6;
+    --text: #222;
+    --muted: #777;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", "Nirmala UI", "Noto Sans", Arial, sans-serif;
+    background: var(--bg);
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+a {
+    text-decoration: none;
+    color: #464feb;
+}
+
+.card {
+    width: 100%;
+    max-width: 560px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(40, 50, 120, .08);
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary), #1c2380);
+    color: #fff;
+    padding: 32px 32px 24px;
+}
+
+    .card-header h1 {
+        margin: 0 0 10px;
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    .card-header p {
+        margin: 0;
+        line-height: 1.6;
+        opacity: .92;
+        font-size: 14.5px;
+    }
+
+.generator-form {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .form-row label {
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+    }
+
+.lang-select {
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1px solid #cfd4ea;
+    border-radius: 8px;
+    background: #fff;
+    color: #222;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+    .lang-select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(70, 79, 235, .15);
+    }
+
+.btn-generate {
+    align-self: flex-start;
+    padding: 12px 28px;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+}
+
+    .btn-generate:hover { background: var(--primary-dark); }
+    .btn-generate:active { transform: translateY(1px); }
+
+.icon { margin-right: 6px; }
+
+.validation-summary { color: #c0392b; font-size: 13.5px; }
+
+.card-footer {
+    border-top: 1px solid var(--border);
+    padding: 14px 32px;
+    background: #fafbff;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* Standard table styling (available for any future tabular content) */
+tr th, tr td {
+    border: 1px solid #e6e6e6;
+}
+
+tr th {
+    background-color: #f5f5f5;
+}
