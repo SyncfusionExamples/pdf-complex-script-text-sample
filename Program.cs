@@ -19,6 +19,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UsePathBase("/pdf-complex-script-text-sample");
 app.UseStaticFiles();
 
 app.UseRouting();
